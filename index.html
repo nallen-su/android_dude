@@ -1,28 +1,144 @@
-<html>
-
+<!doctype html>
+<html lang="en">
 	<head>
-		<title>Interactive Android Logo</title>
-		<link rel="stylesheet" type="text/css" href="android.css">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Android dude — an interactive Android logo</title>
+		<meta
+			name="description"
+			content="A little Android robot drawn in SVG and CSS that looks at your pointer, waves, dances, and lets you dress it up."
+		/>
+		<meta name="color-scheme" content="light dark" />
+		<link rel="stylesheet" href="android.css" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%233ddc84' d='M6 9h12v9a1 1 0 0 1-1 1H7a1 1 0 0 1-1-1zM6 8a6 6 0 0 1 12 0zM3 9.5a1.5 1.5 0 0 1 3 0V15a1.5 1.5 0 0 1-3 0zm15 0a1.5 1.5 0 0 1 3 0V15a1.5 1.5 0 0 1-3 0zM8.5 20h3v2.5a1.5 1.5 0 0 1-3 0zm4 0h3v2.5a1.5 1.5 0 0 1-3 0z'/%3E%3C/svg%3E"
+		/>
 	</head>
 
 	<body>
-		<div class="android">
+		<main class="page">
+			<header class="page__header">
+				<h1 class="page__title">Android dude</h1>
+				<p class="page__tagline">
+					He watches your pointer. Poke him, drag his arms, make him dance.
+				</p>
+			</header>
 
-			<div class="head">
-				<div class="l_ant"></div>
-				<div class="r_ant"></div>
-				<div class="l_eye"></div>
-				<div class="r_eye"></div>
+			<div class="stage">
+				<svg
+					id="dude"
+					class="dude"
+					viewBox="0 0 260 300"
+					role="img"
+					tabindex="0"
+					aria-label="A green Android robot. His eyes follow your pointer. Activate him to make him wave."
+					aria-describedby="shortcuts"
+				>
+					<g class="dude__all" data-part="all">
+						<g class="dude__limb dude__arm dude__arm--left" data-part="arm" data-side="left">
+							<rect x="18" y="112" width="30" height="92" rx="15" />
+						</g>
+						<g class="dude__limb dude__arm dude__arm--right" data-part="arm" data-side="right">
+							<rect x="212" y="112" width="30" height="92" rx="15" />
+						</g>
+
+						<g class="dude__legs">
+							<rect
+								class="dude__leg dude__leg--left"
+								x="86"
+								y="208"
+								width="30"
+								height="56"
+								rx="15"
+							/>
+							<rect
+								class="dude__leg dude__leg--right"
+								x="144"
+								y="208"
+								width="30"
+								height="56"
+								rx="15"
+							/>
+						</g>
+
+						<rect
+							class="dude__torso"
+							x="56"
+							y="64"
+							width="148"
+							height="144"
+							rx="16"
+							data-part="torso"
+						/>
+
+						<g class="dude__head" data-part="head">
+							<line class="dude__antenna" x1="86" y1="44" x2="70" y2="18" />
+							<line class="dude__antenna" x1="174" y1="44" x2="190" y2="18" />
+							<path class="dude__skull" d="M56 78a74 74 0 0 1 148 0z" />
+
+							<g class="dude__face">
+								<g class="dude__eyes">
+									<g class="dude__eye dude__eye--left">
+										<circle class="dude__eye-white" cx="98" cy="52" r="10" />
+										<circle class="dude__pupil" cx="98" cy="52" r="5" />
+										<path class="dude__lid" d="M86 52h24" />
+									</g>
+									<g class="dude__eye dude__eye--right">
+										<circle class="dude__eye-white" cx="162" cy="52" r="10" />
+										<circle class="dude__pupil" cx="162" cy="52" r="5" />
+										<path class="dude__lid" d="M150 52h24" />
+									</g>
+								</g>
+								<path class="dude__mouth" d="M112 66q18 14 36 0" />
+							</g>
+
+							<g class="dude__hat">
+								<g data-hat="cap">
+									<path d="M66 40a64 64 0 0 1 128 0z" />
+									<rect x="186" y="34" width="44" height="10" rx="5" />
+								</g>
+								<g data-hat="crown">
+									<path d="M74 40 84 2l22 22L130 0l24 24 22-22 10 38z" />
+								</g>
+								<g data-hat="party">
+									<path d="M130 4 166 44H94z" />
+									<circle cx="130" cy="2" r="8" />
+								</g>
+							</g>
+						</g>
+
+						<g class="dude__zzz" aria-hidden="true">
+							<text x="196" y="40">z</text>
+							<text x="214" y="22">z</text>
+						</g>
+					</g>
+				</svg>
 			</div>
-			
-			<div class="body">
-				<div class="l_arm"></div>
-				<div class="r_arm"></div>
-				<div class="l_leg"></div>
-				<div class="r_leg"></div>
+
+			<div class="controls" role="group" aria-label="Android dude controls">
+				<button type="button" class="btn" data-action="wave">Wave</button>
+				<button type="button" class="btn" data-action="dance" aria-pressed="false">Dance</button>
+				<button type="button" class="btn" data-action="mood">Mood</button>
+				<button type="button" class="btn" data-action="colour">Recolour</button>
+				<button type="button" class="btn" data-action="hat">Hat</button>
+				<button type="button" class="btn" data-action="sound" aria-pressed="false">
+					Sound off
+				</button>
+				<button type="button" class="btn" data-action="share">Copy link</button>
 			</div>
-		
-		</div>
+
+			<p class="status" id="status" role="status" aria-live="polite"></p>
+
+			<footer class="page__footer">
+				<p id="shortcuts" class="shortcuts">
+					Keyboard: <kbd>Enter</kbd> wave · <kbd>D</kbd> dance · <kbd>M</kbd> mood ·
+					<kbd>C</kbd> colour · <kbd>H</kbd> hat · <kbd>S</kbd> sound. Drag an arm and let go. There
+					is one easter egg.
+				</p>
+			</footer>
+		</main>
+
+		<script src="dude.js" defer></script>
 	</body>
-
 </html>
