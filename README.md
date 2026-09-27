@@ -38,7 +38,7 @@ xdg-open index.html      # Linux
 ```
 
 Any static server works too, for example `python3 -m http.server`, but none is
-required. The page is deployed to GitHub Pages from `main` by
+required. The page is deployed to GitHub Pages from `master` by
 `.github/workflows/pages.yml`.
 
 ## How it is put together
